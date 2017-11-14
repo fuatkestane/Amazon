@@ -1,9 +1,8 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcrypt-nodejs');
-
 /* The user schema attributes/characteristics/fields */
 
-var UserSchema = new mongoose.Schema({
+require('../global');
+
+var UserSchema = new m.mongoose.Schema({
     "email": { type: String, unique: true, lowercase: true },
     "password": String,
     "profile": {
@@ -24,9 +23,9 @@ var UserSchema = new mongoose.Schema({
 UserSchema.pre('save', function (next) {
     var user = this;
     if (!user.isModified('password')) return next();
-    bcrypt.genSalt(10, function (err, salt) {
+    m.bcrypt.genSalt(10, function (err, salt) {
         if (err) return next(err);
-        bcrypt.hash(user.password, salt, null, function (err, hash) {
+        m.bcrypt.hash(user.password, salt, null, function (err, hash) {
             if (err) return next(err);
             user.password = hash;
             next();
@@ -38,8 +37,7 @@ UserSchema.pre('save', function (next) {
 /* Compare password in the database and the one that the user type in */
 
 UserSchema.methods.comparePassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
+    return m.bcrypt.compareSync(password, this.password);
 }
 
-
-module.exports = mongoose.model("User", UserSchema);
+module.exports = m.mongoose.model("User", UserSchema);
