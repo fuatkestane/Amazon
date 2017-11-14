@@ -1,6 +1,6 @@
 require('./global');
 
-
+var User = require('./models/user');
 m.app.post('/create-user', function (req, res, next) {
     var user = new User();
 

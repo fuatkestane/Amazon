@@ -1,4 +1,3 @@
-var User = require('./models/user');
 require('./global');
 
 m.mongoose.Promise = global.Promise;
@@ -20,12 +19,7 @@ m.app.engine('html', m.cons.swig);
 m.app.set('view engine', 'html');
 m.app.set('views', __dirname + '/views');
 
-
-m.app.get('/', function (req, res) {
-    res.render('home');
-});
-
-
+//Create Server
 m.app.listen(3000, function (err) {
     if (err) throw err;
     console.log("Server is running...");
