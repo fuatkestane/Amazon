@@ -1,6 +1,8 @@
 require('./global');
 
 m.mongoose.Promise = global.Promise;
+
+//Connection with MongoLab
 /* m.mongoose.connect("mongodb://root:abc123@ds261745.mlab.com:61745/ecommerce", function (err) {
     if (err) {
         console.log(err);
@@ -9,6 +11,7 @@ m.mongoose.Promise = global.Promise;
     }
 }); */
 
+//Connection with Local MongoDB
 m.mongoose.connect("mongodb://localhost:27017/ecommerce", function (err) {
     if (err) {
         console.log(err);
@@ -22,18 +25,14 @@ m.app.use(m.morgan('dev'));
 m.app.use(m.bodyParser.json());
 m.app.use(m.bodyParser.urlencoded({ extended: true }));
 
-//ViewEngine
-m.app.engine('html', m.cons.swig);
-m.app.set('view engine', 'html');
-m.app.set('views', __dirname + '/views');
-// m.app.use(m.express.static(m.path.join(__dirname,'client')));
+//ViewEngine with angular
+m.app.use(m.express.static(m.path.join(__dirname, 'client')));
 
 //Controllers import
-m.app.use('/', require("./controllers/index"));
 m.app.use('/user', require("./controllers/user/user"));
 
 //Create Server
-m.app.listen(3000, function (err) {
+m.app.listen(5555, function (err) {
     if (err) throw err;
     console.log("Server is running...");
 });
