@@ -1,5 +1,7 @@
-require('./global');
+var router = m.express.Router();
 
-m.app.get('/', function (req, res) {
+router.get('/', function (req, res) {
     res.render('index');
 });
+
+module.exports = router;

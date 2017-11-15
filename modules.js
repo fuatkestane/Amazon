@@ -1,10 +1,11 @@
 module.exports = {
     'express': require('express'),
+    'app': require('express')(),
     'morgan': require('morgan'),
     'mongoose': require('mongoose'),
     'bodyParser': require('body-parser'),
     'session': require('express-session'),
     'cons': require('consolidate'),
-    'bcrypt':require('bcrypt-nodejs'),
-    'app': require('express')(),
+    'bcrypt': require('bcrypt-nodejs'),
+    'router': require('router')
 };

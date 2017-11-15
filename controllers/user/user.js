@@ -1,7 +1,8 @@
-require('./global');
+var router = m.express.Router();
+var User = require('../../models/user');
 
-var User = require('./models/user');
-m.app.post('/create-user', function (req, res, next) {
+
+router.post('/create-user', function (req, res, next) {
     var user = new User();
 
     user.profile.name = req.body.name;
@@ -14,4 +15,4 @@ m.app.post('/create-user', function (req, res, next) {
     });
 });
 
-
+module.exports = router;
