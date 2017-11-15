@@ -15,7 +15,9 @@ var UserSchema = new m.mongoose.Schema({
         "paid": { type: Number, default: 0 },
         // "item":{type:Schema.Types.ObjectId, ref:''}
     }]
-});
+}, {
+        versionKey: false
+    });
 
 
 /* Hash the password before we even save it to the database */
