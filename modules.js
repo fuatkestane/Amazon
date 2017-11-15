@@ -7,5 +7,6 @@ module.exports = {
     'session': require('express-session'),
     'cons': require('consolidate'),
     'bcrypt': require('bcrypt-nodejs'),
-    'router': require('router')
+    'router': require('router'),
+    'path': require('path')
 };

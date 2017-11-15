@@ -18,13 +18,12 @@ m.app.use(m.bodyParser.urlencoded({ extended: true }));
 m.app.engine('html', m.cons.swig);
 m.app.set('view engine', 'html');
 m.app.set('views', __dirname + '/views');
+m.app.set('controllers', __dirname + '/controllers');
 // m.app.use(m.express.static(m.path.join(__dirname,'client')));
 
-
 //Controllers import
-m.router = m.express.Router();
-require('./controllers/index');
-require('./controllers/user/user');
+m.app.use('/', require("./controllers/index"));
+m.app.use('/user', require("./controllers/user/user"));
 
 //Create Server
 m.app.listen(3000, function (err) {
