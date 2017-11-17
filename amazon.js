@@ -25,11 +25,6 @@ m.app.use(m.morgan('dev'));
 m.app.use(m.bodyParser.json());
 m.app.use(m.bodyParser.urlencoded({ extended: true }));
 
-// Send all other requests to the Angular app
-m.app.get('*', (req, res) => {
-    res.sendFile(m.path.join(__dirname, 'client/src/index.html'));
-});
-
 //Controllers import
 m.app.use('/user', require("./controllers/user/user"));
 
