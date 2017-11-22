@@ -1,8 +1,8 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignupComponent } from './signup/signup.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { ListComponent } from './list/list.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ListComponent } from './components/list/list.component';
 
 export const router: Routes = [
     { path: 'navbar', component: NavbarComponent },

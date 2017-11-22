@@ -1,0 +1,22 @@
+<section class="jumbotron text-center" style="background-color:white;">
+  <div class="container">
+    <div class="row justify-content-md-center">
+      <form>
+        <div class="form-group">
+          <label for="inputName">Name Surname</label>
+          <input type="text" class="form-control" placeholder="Enter name and surname" name="inputname" [(ngModel)]="user.name" >
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" class="form-control" placeholder="Enter email" name="inputemail" [(ngModel)]="user.email">
+          <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="inputpassword" [(ngModel)]="user.password">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="createUser()">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
